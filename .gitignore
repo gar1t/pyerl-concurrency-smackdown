@@ -1,0 +1,4 @@
+bench/*.log
+bench/*.txt
+bench/*.ctx
+bench/*.ops
