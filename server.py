@@ -8,7 +8,7 @@ HOST = ''
 PORT = 7000
 BACKLOG = 1024
 RECV_BUF = 1024
-WORK_DELAY = 10000
+WORK_DELAY = 1000
 
 handler_count = None
 
@@ -47,7 +47,7 @@ class Handler(threading.Thread):
         except Exception, e:
             print "ERROR in %s: %s" % (self.name, e)
         finally:
-            handler_counter.decr()
+            handler_count.decr()
 
 def serve_forever():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -57,15 +57,14 @@ def serve_forever():
     print "Python server is listening on port %i" % PORT
     while True:
         client, peer = s.accept()
-        active_handlers = handler_counter.incr()
+        active_handlers = handler_count.incr()
         print "%i %05.i %s" % (time.time() * 1000, active_handlers,
-                            format_peer(peer))
+                               format_peer(peer))
         Handler(client).start()
 
 def format_peer((Address, Port)):
     return "%s:%i" % (Address, Port)
 
 if __name__ == '__main__':
-    global handler_counter
-    handler_counter = Counter()
+    handler_count = Counter()
     serve_forever()

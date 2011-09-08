@@ -4,9 +4,9 @@
 
 -define(PORT, 7000).
 -define(BACKLOG, 1024).
--define(WORK_DELAY, 10000).
+-define(WORK_DELAY, 1000).
 
-main(_) ->
+main(_Args) ->
     start_counter(handler_count),
     serve_forever().
 
