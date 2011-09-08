@@ -8,6 +8,8 @@
 
 /proc/sys/net/core/somaxconn
 
+http://www.linuxjournal.com/files/linuxjournal.com/linuxjournal/articles/023/2333/2333s2.html
+
 ** Resuing TIME_WAIT Sockets
 
 echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse

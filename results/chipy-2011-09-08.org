@@ -1,11 +1,11 @@
 * Round 1
 
- | Concurrency                     |   |
- | Requests                        |   |
- | Backlog                         |   |
- | Work Delay                      |   |
- | /proc/sys/net/core/somaxconn    |   |
- | /proc/sys/net/ipv4/tcp_tw_reuse |   |
+ | Concurrency                     |  100 |
+ | Requests                        | 6000 |
+ | Backlog                         | 1024 |
+ | Work Delay                      | 1000 |
+ | /proc/sys/net/core/somaxconn    |      |
+ | /proc/sys/net/ipv4/tcp_tw_reuse |      |
 
  |          | Python | Erlang |
  |----------+--------+--------|
@@ -13,15 +13,104 @@
  | VSZ      |        |        |
  | RSS      |        |        |
  | Swapping |        |        |
- | Requests |        |        |
+ | Complete |        |        |
  | Failed   |        |        |
  | Time     |        |        |
 
 * Round 2
 
+ | Concurrency                     |  1000 |
+ | Requests                        | 60000 |
+ | Backlog                         |  1024 |
+ | Work Delay                      |  1000 |
+ | /proc/sys/net/core/somaxconn    |       |
+ | /proc/sys/net/ipv4/tcp_tw_reuse |       |
+
+ |          | Python | Erlang |
+ |----------+--------+--------|
+ | CPU      |        |        |
+ | VSZ      |        |        |
+ | RSS      |        |        |
+ | Swapping |        |        |
+ | Complete |        |        |
+ | Failed   |        |        |
+ | Time     |        |        |
+
 * Round 3
 
+ | Concurrency                     |   5000 |
+ | Requests                        | 300000 |
+ | Backlog                         |   1024 |
+ | Work Delay                      |   1000 |
+ | /proc/sys/net/core/somaxconn    |        |
+ | /proc/sys/net/ipv4/tcp_tw_reuse |        |
+
+ |          | Python | Erlang |
+ |----------+--------+--------|
+ | CPU      |        |        |
+ | VSZ      |        |        |
+ | RSS      |        |        |
+ | Swapping |        |        |
+ | Complete |        |        |
+ | Failed   |        |        |
+ | Time     |        |        |
+
 * Round 4
+
+ | Concurrency                     |  10000 |
+ | Requests                        | 150000 |
+ | Backlog                         |   1024 |
+ | Work Delay                      |   1000 |
+ | /proc/sys/net/core/somaxconn    |        |
+ | /proc/sys/net/ipv4/tcp_tw_reuse |        |
+
+ |          | Python | Erlang |
+ |----------+--------+--------|
+ | CPU      |        |        |
+ | VSZ      |        |        |
+ | RSS      |        |        |
+ | Swapping |        |        |
+ | Complete |        |        |
+ | Failed   |        |        |
+ | Time     |        |        |
+
+* Round 5
+
+ | Concurrency                     |  10000 |
+ | Requests                        | 150000 |
+ | Backlog                         |   8192 |
+ | Work Delay                      |   1000 |
+ | /proc/sys/net/core/somaxconn    |        |
+ | /proc/sys/net/ipv4/tcp_tw_reuse |        |
+
+ |          | Python | Erlang |
+ |----------+--------+--------|
+ | CPU      |        |        |
+ | VSZ      |        |        |
+ | RSS      |        |        |
+ | Swapping |        |        |
+ | Complete |        |        |
+ | Failed   |        |        |
+ | Time     |        |        |
+
+* Round 6
+
+ | Concurrency                     | 20000 |
+ | Requests                        | 40000 |
+ | Backlog                         |  8192 |
+ | Work Delay                      | 10000 |
+ | /proc/sys/net/core/somaxconn    |       |
+ | /proc/sys/net/ipv4/tcp_tw_reuse |       |
+
+ |          | Python | Erlang |
+ |----------+--------+--------|
+ | CPU      |        |        |
+ | VSZ      |        |        |
+ | RSS      |        |        |
+ | Swapping |        |        |
+ | Complete |        |        |
+ | Failed   |        |        |
+ | Time     |        |        |
 
 * Templates
 
@@ -38,7 +127,7 @@
  | VSZ      |        |        |
  | RSS      |        |        |
  | Swapping |        |        |
- | Requests |        |        |
+ | Complete |        |        |
  | Failed   |        |        |
  | Time     |        |        |
 
