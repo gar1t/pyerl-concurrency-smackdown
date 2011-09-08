@@ -1,0 +1,26 @@
+# -*-org-*-
+
+* Factors
+
+** Work Delay
+
+** Listen backlog and SOMAXCON
+
+/proc/sys/net/core/somaxconn
+
+** Resuing TIME_WAIT Sockets
+
+echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse
+
+** Reducing TCP_FIN_TIMEOUT
+
+echo 30 > /proc/sys/net/ipv4/tcp_fin_timeout
+
+** Log To Files
+
+Logging rapidly to stdout can tie up CPU.
+
+* Scratch
+
+It's a challenge to actually get the number of concurrent handlers up to a
+respectable level.
