@@ -371,3 +371,18 @@ div.viewcode-block:target {
     margin: -1px -12px;
     padding: 0 12px;
 }
+
+
+li {
+  font-size: 18px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 12px;
+}
+
+h3 {
+  font-size: 16px;
+  margin-top: 15px;
+}
