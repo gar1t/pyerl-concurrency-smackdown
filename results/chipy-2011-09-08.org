@@ -1,16 +1,11 @@
-* Server Parameters
-
-* System Parameters
-
- | /proc/sys/net/core/somaxconn    |   |
- | /proc/sys/net/ipv4/tcp_tw_reuse |   |
-
 * Round 1
 
- | Requests    |       |
- | Concurrency |       |
- | Backlog     |       |
- | Work Delay  |       |
+ | Concurrency                     |   |
+ | Requests                        |   |
+ | Backlog                         |   |
+ | Work Delay                      |   |
+ | /proc/sys/net/core/somaxconn    |   |
+ | /proc/sys/net/ipv4/tcp_tw_reuse |   |
 
  |          | Python | Erlang |
  |----------+--------+--------|
@@ -30,10 +25,12 @@
 
 * Templates
 
- | Requests    |       |
- | Concurrency |       |
- | Backlog     |       |
- | Work Delay  |       |
+ | Concurrency                     |   |
+ | Requests                        |   |
+ | Backlog                         |   |
+ | Work Delay                      |   |
+ | /proc/sys/net/core/somaxconn    |   |
+ | /proc/sys/net/ipv4/tcp_tw_reuse |   |
 
  |          | Python | Erlang |
  |----------+--------+--------|
