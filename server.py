@@ -6,9 +6,9 @@ import time
 
 HOST = ''
 PORT = 7000
-BACKLOG = 5
+BACKLOG = 1024
 RECV_BUF = 1024
-WORK_DELAY = 100
+WORK_DELAY = 10000
 
 handler_count = None
 
@@ -35,15 +35,19 @@ class Handler(threading.Thread):
         self.client = client
 
     def run(self):
-        self.client.recv(RECV_BUF)
-        time.sleep(WORK_DELAY / 1000.0)
-        self.client.send("HTTP/1.1 200 OK\r\n"
-                         "Content-Length: 5\r\n"
-                         "Content-Type: text/plain\r\n"
-                         "\r\n"
-                         "hello")
-        self.client.close()
-        handler_counter.decr()
+        try:
+            self.client.recv(RECV_BUF)
+            time.sleep(WORK_DELAY / 1000.0)
+            self.client.send("HTTP/1.1 200 OK\r\n"
+                             "Content-Length: 5\r\n"
+                             "Content-Type: text/plain\r\n"
+                             "\r\n"
+                             "hello")
+            self.client.close()
+        except Exception, e:
+            print "ERROR in %s: %s" % (self.name, e)
+        finally:
+            handler_counter.decr()
 
 def serve_forever():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

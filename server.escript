@@ -1,8 +1,10 @@
 #!/usr/bin/env escript
+%% -*-erlang-*-
+%%! -smp disable +P 200000
 
 -define(PORT, 7000).
--define(BACKLOG, 5).
--define(WORK_DELAY, 100).
+-define(BACKLOG, 1024).
+-define(WORK_DELAY, 10000).
 
 main(_) ->
     start_counter(handler_count),
@@ -55,15 +57,19 @@ handle_connections(Socket) ->
     handle_connections(Socket).
 
 handle_connection(Client) ->
-    {ok, _} = gen_tcp:recv(Client, 0),
-    timer:sleep(?WORK_DELAY),
-    gen_tcp:send(Client, "HTTP/1.1 200 OK\r\n"
-                         "Content-Length: 5\r\n"
-                         "Content-Type: text/plain\r\n"
-                         "\r\n"
-                         "hello"),
-    ok = gen_tcp:close(Client),
-    decr_counter(handler_count).
+    try
+        {ok, _} = gen_tcp:recv(Client, 0),
+        timer:sleep(?WORK_DELAY),
+        ok = gen_tcp:send(Client,
+                          "HTTP/1.1 200 OK\r\n"
+                          "Content-Length: 5\r\n"
+                          "Content-Type: text/plain\r\n"
+                          "\r\n"
+                          "hello"),
+        ok = gen_tcp:close(Client)
+    after
+        decr_counter(handler_count)
+    end.
 
 format_peer({{A, B, C, D}, Port}) ->
     io_lib:format("~b.~b.~b.~b:~b", [A, B, C, D, Port]).
