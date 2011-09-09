@@ -1,116 +1,74 @@
 * Round 1
 
- | Concurrency                     |  100 |
- | Requests                        | 6000 |
- | Backlog                         | 1024 |
- | Work Delay                      | 1000 |
- | /proc/sys/net/core/somaxconn    |      |
- | /proc/sys/net/ipv4/tcp_tw_reuse |      |
+ | Concurrency |  1000 |
+ | Requests    | 60000 |
+ | Backlog     |  1024 |
+ | Work Delay  |  1000 |
 
  |          | Python | Erlang |
  |----------+--------+--------|
- | CPU      |        |        |
- | VSZ      |        |        |
- | RSS      |        |        |
- | Swapping |        |        |
- | Complete |        |        |
- | Failed   |        |        |
- | Time     |        |        |
+ | CPU      |     44 |     60 |
+ | VSZ      |  8313  |     76 |
+ | RSS      |     24 |     53 |
+ | Swapping |      0 |      0 |
+ | Complete |  60000 |  60000 |
+ | Failed   |      0 |      0 |
+ | Time     | 62.089 | 61.621 |
 
 * Round 2
 
- | Concurrency                     |  1000 |
- | Requests                        | 60000 |
- | Backlog                         |  1024 |
- | Work Delay                      |  1000 |
- | /proc/sys/net/core/somaxconn    |       |
- | /proc/sys/net/ipv4/tcp_tw_reuse |       |
+ | Concurrency |  10000 |
+ | Requests    | 150000 |
+ | Backlog     |   1024 |
+ | Work Delay  |   1000 |
 
- |          | Python | Erlang |
- |----------+--------+--------|
- | CPU      |        |        |
- | VSZ      |        |        |
- | RSS      |        |        |
- | Swapping |        |        |
- | Complete |        |        |
- | Failed   |        |        |
- | Time     |        |        |
+ |          |  Python | Erlang |
+ |----------+---------+--------|
+ | CPU      |      73 |     97 |
+ | VSZ      |   14000 |    116 |
+ | RSS      |      42 |     89 |
+ | Swapping |       0 |      0 |
+ | Complete |  150000 | 150000 |
+ | Failed   |    5010 |   4734 |
+ | Time     | 113.441 | 81.297 |
 
 * Round 3
 
- | Concurrency                     |   5000 |
- | Requests                        | 300000 |
- | Backlog                         |   1024 |
- | Work Delay                      |   1000 |
- | /proc/sys/net/core/somaxconn    |        |
- | /proc/sys/net/ipv4/tcp_tw_reuse |        |
+ | Concurrency |  10000 |
+ | Requests    | 150000 |
+ | Backlog     |   8192 |
+ | Work Delay  |   1000 |
 
  |          | Python | Erlang |
  |----------+--------+--------|
- | CPU      |        |        |
- | VSZ      |        |        |
- | RSS      |        |        |
- | Swapping |        |        |
- | Complete |        |        |
- | Failed   |        |        |
- | Time     |        |        |
+ | CPU      |     74 | 97     |
+ | VSZ      |  14000 | 115    |
+ | RSS      |     42 | 90     |
+ | Swapping |      0 | 0      |
+ | Complete | 150000 | 150000 |
+ | Failed   |      0 | 0      |
+ | Time     | 94.206 | 86.099 |
 
 * Round 4
 
- | Concurrency                     |  10000 |
- | Requests                        | 150000 |
- | Backlog                         |   1024 |
- | Work Delay                      |   1000 |
- | /proc/sys/net/core/somaxconn    |        |
- | /proc/sys/net/ipv4/tcp_tw_reuse |        |
+ | Concurrency | 20000 |
+ | Requests    | 40000 |
+ | Backlog     |  8192 |
+ | Work Delay  | 10000 |
 
  |          | Python | Erlang |
  |----------+--------+--------|
- | CPU      |        |        |
- | VSZ      |        |        |
- | RSS      |        |        |
- | Swapping |        |        |
- | Complete |        |        |
- | Failed   |        |        |
- | Time     |        |        |
+ | CPU      |     90 |     92 |
+ | VSZ      | 100000 |    510 |
+ | RSS      |    180 |    480 |
+ | Swapping |      0 |      0 |
+ | Complete |  40000 |  40000 |
+ | Failed   |      0 |      0 |
+ | Time     | 59.238 | 32.022 |
 
-* Round 5
-
- | Concurrency                     |  10000 |
- | Requests                        | 150000 |
- | Backlog                         |   8192 |
- | Work Delay                      |   1000 |
- | /proc/sys/net/core/somaxconn    |        |
- | /proc/sys/net/ipv4/tcp_tw_reuse |        |
-
- |          | Python | Erlang |
- |----------+--------+--------|
- | CPU      |        |        |
- | VSZ      |        |        |
- | RSS      |        |        |
- | Swapping |        |        |
- | Complete |        |        |
- | Failed   |        |        |
- | Time     |        |        |
-
-* Round 6
-
- | Concurrency                     | 20000 |
- | Requests                        | 40000 |
- | Backlog                         |  8192 |
- | Work Delay                      | 10000 |
- | /proc/sys/net/core/somaxconn    |       |
- | /proc/sys/net/ipv4/tcp_tw_reuse |       |
-
- |          | Python | Erlang |
- |----------+--------+--------|
- | CPU      |        |        |
- | VSZ      |        |        |
- | RSS      |        |        |
- | Swapping |        |        |
- | Complete |        |        |
- | Failed   |        |        |
- | Time     |        |        |
+This is the first test where Erlang had a noticable improvement over Python
+(time). I ran this test three times for each server and the results were all
+similar. These numbers are for the first trial (not averages).
 
 * Templates
 
