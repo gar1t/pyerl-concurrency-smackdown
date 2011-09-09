@@ -1,5 +1,18 @@
 # -*-org-*-
 
+This code can be used to compare a particular aspect of concurrency suppor in
+Python and Erlang.
+
+It was prepared for a presentation at the Chicago Python User Group on Sept
+8, 2011.
+
+This README is mostly random nodes. For a bit more structure, build the Sphinx
+docs in the doc dir:
+
+ - Install python-sphinx
+ - Run "make html" in the doc dir
+ - View the docs by opening doc/_build/html/index.html in a browser
+
 * Factors
 
 ** Work Delay

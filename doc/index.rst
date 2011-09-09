@@ -17,3 +17,7 @@ Welcome
    ab_output
    system_monitoring
    begin
+   and_the_winner
+   and_the_loser
+   responsive_reading
+   references
